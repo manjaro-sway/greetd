@@ -1,0 +1,3 @@
+# greetd
+
+A simple displaymanager
