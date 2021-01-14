@@ -5,7 +5,7 @@ pkgname=greetd
 pkgver=0.7.0
 pkgrel=1
 pkgdesc="Generic greeter daemon"
-arch=(x86_64)
+arch=('x86_64' 'aarch64')
 url="https://git.sr.ht/~kennylevinsen/greetd"
 license=(GPL3)
 source=("https://git.sr.ht/~kennylevinsen/greetd/archive/$pkgver.tar.gz"
@@ -15,6 +15,7 @@ sha256sums=('5229b7f00be40187de9df6240fc3b1f4012dd5e4777bb8661016cc7c2c105df7'
 depends=(systemd pam)
 makedepends=(git rust scdoc)
 optdepends=(
+  'greetd-tuigreet: greeter tui'
   'greetd-gtkgreet: Simple GTK based greeter'
   'greetd-dlm: Dumb Login Manager'
   'greetd-wlgreet: Wayland greeter'
