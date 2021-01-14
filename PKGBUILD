@@ -3,7 +3,7 @@
 
 pkgname=greetd
 pkgver=0.7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Generic greeter daemon"
 arch=('x86_64' 'aarch64')
 url="https://git.sr.ht/~kennylevinsen/greetd"
