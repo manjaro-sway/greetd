@@ -5,7 +5,7 @@ pkgname=greetd
 pkgver=0.9.0
 pkgrel=1
 pkgdesc="Generic greeter daemon"
-arch=(x86_64)
+arch=('x86_64' 'aarch64')
 url="https://git.sr.ht/~kennylevinsen/greetd"
 license=(GPL3)
 source=("https://git.sr.ht/~kennylevinsen/greetd/archive/$pkgver.tar.gz"
@@ -13,8 +13,9 @@ source=("https://git.sr.ht/~kennylevinsen/greetd/archive/$pkgver.tar.gz"
 sha256sums=('a0cec141dea7fd7838b60a52237692d0fd5a0169cf748b8f8379d8409a3768eb'
             '993a3096c2b113e6800f2abbd5d4233ebf1a97eef423990d3187d665d3490b92')
 depends=(systemd pam)
-makedepends=(git rust scdoc)
+makedepends=(git rust scdoc llvm-libs lldb)
 optdepends=(
+  'greetd-tuigreet: greeter tui'
   'greetd-gtkgreet: Simple GTK based greeter'
   'greetd-dlm: Dumb Login Manager'
   'greetd-wlgreet: Wayland greeter'
@@ -26,7 +27,7 @@ backup=(
 
 build() {
   cd greetd-$pkgver
-  RUSTFLAGS="--remap-path-prefix=$(pwd)=/build/" cargo build --release --locked
+  RUSTFLAGS="-Ccodegen-units=1 --remap-path-prefix=$(pwd)=/build/" cargo build --release --locked
   cd man
   for i in *.scd
   do
