@@ -3,9 +3,9 @@
 
 pkgname=greetd
 pkgver=0.8.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Generic greeter daemon"
-arch=('x86_64')
+arch=('x86_64' 'aarch64')
 url="https://git.sr.ht/~kennylevinsen/greetd"
 license=(GPL3)
 source=("https://git.sr.ht/~kennylevinsen/greetd/archive/$pkgver.tar.gz"
